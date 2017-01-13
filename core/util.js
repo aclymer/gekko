@@ -70,8 +70,8 @@ var util = {
     }
   },
   logVersion: function() {
-    return  `Gekko version: v${util.getVersion()}`
-    + `\nNodejs version: ${process.version}`;
+    return  'Gekko version: v${util.getVersion()}'
+    + '\nNodejs version: ${process.version}';
   },
   die: function(m, soft) {
     if(m) {
