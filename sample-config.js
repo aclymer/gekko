@@ -29,7 +29,7 @@ config.watch = {
 config.tradingAdvisor = {
   enabled: true,
   method: 'MACD',
-  candleSize: 60,
+  candleSize: 60, // Minutes
   historySize: 25,
   adapter: 'sqlite',
   talib: {
@@ -40,11 +40,11 @@ config.tradingAdvisor = {
 
 // Exponential Moving Averages settings:
 config.DEMA = {
-  // EMA weight (α)
+  // EMA weight (α) = 2 / (N + 1)
   // the higher the weight, the more smooth (and delayed) the line
+  // N = amount of candles to remember and base initial EMAs on (trailing periods)
   short: 10,
   long: 21,
-  // amount of candles to remember and base initial EMAs on
   // the difference between the EMAs (to act as triggers)
   thresholds: {
     down: -0.025,
@@ -56,6 +56,7 @@ config.DEMA = {
 config.MACD = {
   // EMA weight (α)
   // the higher the weight, the more smooth (and delayed) the line
+  // N = amount of candles to remember and base initial EMAs on (trailing periods)
   short: 10,
   long: 21,
   signal: 9,
@@ -73,6 +74,7 @@ config.MACD = {
 config.PPO = {
   // EMA weight (α)
   // the higher the weight, the more smooth (and delayed) the line
+  // N = amount of candles to remember and base initial EMAs on (trailing periods)
   short: 12,
   long: 26,
   signal: 9,
